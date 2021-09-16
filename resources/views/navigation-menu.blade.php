@@ -19,7 +19,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route( 'tweet' ) }}" :active="request()->routeIs( 'tweet' )">
+                    <x-jet-nav-link href="{{ route( 'tweet.index' ) }}" :active="request()->routeIs( 'tweet' )">
                         {{ __( 'Tweets' ) }}
                     </x-jet-nav-link>
                 </div>
