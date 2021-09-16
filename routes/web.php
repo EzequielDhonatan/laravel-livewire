@@ -8,7 +8,7 @@ use App\Http\Livewire\{
 
 }; //
 
-Route::get( 'tweet', ShowTweet::class );
+Route::get( 'tweet', ShowTweet::class )->name( 'tweet' )->middleware( 'auth' ); ## TWEET
 
 Route::get('/', function () {
     return view('welcome');
