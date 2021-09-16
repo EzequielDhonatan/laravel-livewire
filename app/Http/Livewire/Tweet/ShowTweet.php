@@ -19,7 +19,7 @@ class ShowTweet extends Component
 
     public function render()
     {
-        $tweets = Tweet::with( 'user' )->paginate( 2 );
+        $tweets = Tweet::with( 'user' )->latest()->paginate();
 
         return view( 'livewire.tweet.show-tweet', compact( 'tweets' ) );
     }
@@ -28,10 +28,14 @@ class ShowTweet extends Component
     {
         $this->validate();
 
-        Tweet::create([
-            'user_id'   => 1,
+        // Tweet::create([
+        //     'user_id'   => auth()->user()->id,
+        //     'content'   => $this->content
+        // ]); //
+
+        auth()->user()->tweets()->create([
             'content'   => $this->content
-        ]); //
+        ]);
 
         $this->content = '';
     }

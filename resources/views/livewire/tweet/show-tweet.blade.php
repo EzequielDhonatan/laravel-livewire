@@ -19,8 +19,7 @@
 
     @foreach ( $tweets as $tweet )
 
-        {{ $tweet->user->name }} <br>
-        {{ $tweet->content }}
+        {{ $tweet->user->name }} - {{ $tweet->content }} <br>
 
     @endforeach
 
