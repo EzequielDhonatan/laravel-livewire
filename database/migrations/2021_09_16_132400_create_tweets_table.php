@@ -16,7 +16,7 @@ class CreateTweetsTable extends Migration
         Schema::create('tweets', function (Blueprint $table) {
             $table->id();
 
-            /* DADOS DO CONTEÚDO
+            /* DADOS DO TWEET
             ================================================== */
             $table->foreignId( 'user_id' )->constrained( 'users' ); ## USUÁRIO
 

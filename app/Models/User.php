@@ -11,6 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Tweet\Tweet;
+use App\Models\Like\Like;
 
 class User extends Authenticatable
 {
@@ -64,6 +65,11 @@ class User extends Authenticatable
     public function tweets()
     {
         return $this->hasMany( Tweet::class );
+    }
+
+    public function like()
+    {
+        return $this->hasMany( Like::class );
     }
 
 } // User
