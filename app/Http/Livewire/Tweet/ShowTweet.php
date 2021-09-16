@@ -5,9 +5,12 @@ namespace App\Http\Livewire\Tweet;
 use Livewire\Component;
 
 use App\Models\Tweet\Tweet;
+use Livewire\WithPagination;
 
 class ShowTweet extends Component
 {
+    use WithPagination;
+
     public $content = 'apenas um test';
 
     protected $rules = [
@@ -16,7 +19,7 @@ class ShowTweet extends Component
 
     public function render()
     {
-        $tweets = Tweet::with( 'user' )->get();
+        $tweets = Tweet::with( 'user' )->paginate( 2 );
 
         return view( 'livewire.tweet.show-tweet', compact( 'tweets' ) );
     }
