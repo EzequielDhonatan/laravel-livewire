@@ -4,11 +4,19 @@
 
     <p>{{ $message }}</p>
 
-    <input type="text" id="message" name="message" wire:model="message">
+    <form method="POST" wire:submit.prevent="store">
+
+        <input type="text" id="message" name="message" wire:model="message">
+
+        <button type="submit">
+            Criar Tweet
+        </button>
+
+    </form> <!-- -->
 
     <hr>
 
-    @foreach ( $tweets as $twwet )
+    @foreach ( $tweets as $tweet )
 
         {{ $tweet->user->name }} <br>
         {{ $tweet->content }}
