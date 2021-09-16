@@ -8,7 +8,11 @@ use App\Models\Tweet\Tweet;
 
 class ShowTweet extends Component
 {
-    public $message = 'apenas um test';
+    public $content = 'apenas um test';
+
+    protected $rules = [
+        'content' => 'required|min:3|max:255'
+    ];
 
     public function render()
     {
@@ -19,12 +23,14 @@ class ShowTweet extends Component
 
     public function store()
     {
+        $this->validate();
+
         Tweet::create([
             'user_id'   => 1,
-            'content'   => $this->message
+            'content'   => $this->content
         ]); //
 
-        $this->message = '';
+        $this->content = '';
     }
 
 } // ShowTweet

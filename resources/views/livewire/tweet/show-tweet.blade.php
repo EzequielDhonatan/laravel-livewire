@@ -2,11 +2,12 @@
 
     Show Tweets
 
-    <p>{{ $message }}</p>
+    <p>{{ $content }}</p>
 
     <form method="POST" wire:submit.prevent="store">
 
-        <input type="text" id="message" name="message" wire:model="message">
+        <input type="text" id="content" name="content" wire:model="content">
+        @error( 'content' ) {{ $message }} @enderror
 
         <button type="submit">
             Criar Tweet
